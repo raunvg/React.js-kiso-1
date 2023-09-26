@@ -1,38 +1,57 @@
-body{
+body {
   background-color: #d9d9d9;
 }
-.header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #66d48b;
   color: white;
 }
-.header h1{
+.top {
   margin-left: 50px;
+  text-decoration: none;
 }
-.header a{
+header a {
   margin-right: 50px;
 }
-.threadList{
+header a:visited {
+  color: white;
+}
+.threadList {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.threadList ul{
+.threadList ul {
   padding: 0;
   background-color: white;
 }
-.threadList li{
+.threadList li {
   list-style: none;
   border: black 1px solid;
   border-bottom: none;
   width: 500px;
   padding: 20px 10px 20px 10px;
 }
-.threadList li:last-child{
+.threadList li:last-child {
   border-bottom: black 1px solid;
 }
-.threadList a{
+.threadList a {
   text-decoration: none;
+}
+.createThread {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createThread input {
+  width: 500px;
+}
+.createThread button {
+  margin-top: 5px;
+}
+.inTitle {
+  display: flex;
+  flex-direction: column;
 }
