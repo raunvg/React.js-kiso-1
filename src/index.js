@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { New } from './thread/New';
+import { Thread } from './thread/Thread';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/thread/new" element={<New />} />
+        <Route path="/thread/:thread_id" element={<Thread />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

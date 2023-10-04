@@ -1,41 +1,52 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export const CreateThread = () => {
   const navigate = useNavigate();
-  const onClickButton = () => {
-    const element = document.querySelector('#title');
-    const value = element.value;
-    const title = {
-      title: value,
-    };
+  const [title, setTitle] = useState([]);
+  const onChange = (a) => {
+    setTitle(a.target.value);
+  };
+  async function onClickButton() {
     const url =
       'https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads';
+    const titleJson = {
+      title: title,
+    };
     const fetchData = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(title),
+      body: JSON.stringify(titleJson),
     };
     const check = () => {
-      if (value == '') {
+      if (title == '') {
         alert('スレッドタイトルを入力してください');
-      } else {
-        navigate('/');
+        return false;
       }
     };
-    fetch(url, fetchData)
-      .then((response) => response.text())
-      .then(check);
-  };
+    const api = () => {
+      fetch(url, fetchData).then((response) => response.text());
+    };
+    const move = () => {
+      navigate('/');
+    };
+    if (check() == false) {
+      return false;
+    } else {
+      await api();
+      await move();
+    }
+  }
 
   return (
     <div className="createThread">
       <h2>新規スレッドの作成</h2>
       <div className="inTitle">
         <label htmlFor="title">▼スレッドタイトルを入力してください。</label>
-        <input id="title" type="text" required />
+        <input id="title" type="text" onChange={onChange} />
       </div>
       <button onClick={onClickButton}>スレッドを作る</button>
     </div>

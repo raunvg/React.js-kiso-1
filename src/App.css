@@ -55,3 +55,34 @@ header a:visited {
   display: flex;
   flex-direction: column;
 }
+.postList{
+  margin-left: 50px;
+}
+.postList ul{
+  padding: 0;
+}
+.postList ul li{
+  list-style: none;
+  width: 500px;
+  word-break: break-all;
+  background-color: white;
+  border: solid 1px black;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+.postList textarea{
+  width: 250px;
+  padding: 10px;
+  border: solid 1px black;
+}
+.postList button{
+  display: block;
+  width: 270px;
+  height: 50px;
+  border: solid 1px black;
+  background-color: #66d48b;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
